@@ -10,20 +10,25 @@ password_sym = int(input("How many symbols do you want your password to have?\n"
 
 import random
 
-password = ""
+password_array = []
 
 for low in range(0, password_low):
-    password += random.choice(low_letters)
+    password_array += random.choice(low_letters)
     
 for cap in range(0, password_cap):
-    password += random.choice(capital_letters)
+    password_array += random.choice(capital_letters)
   
 for num in range(0, password_num):
-    password += random.choice(numbers)
+    password_array += random.choice(numbers)
   
 for sym in range(0, password_sym):
-    password += random.choice(symbols)
+    password_array += random.choice(symbols)
 
-# generated_password = random.shuffle(password)
+print(password_array)
 
+
+password = random.sample(password_array, k = len(password_array))
 print(password)
+
+generated_password = ''.join(password)
+print("Generated password for you: " + generated_password)
